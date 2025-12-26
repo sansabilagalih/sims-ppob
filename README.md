@@ -65,7 +65,7 @@ Aplikasi web untuk manajemen pembayaran PPOB (Payment Point Online Bank) yang me
 ## 📁 Project Structure
 
 ```
-simsPpob/
+sims-ppob/
 ├── src/
 │   ├── api/
 │   │   └── axiosInstance.ts          # Axios configuration
@@ -111,7 +111,7 @@ simsPpob/
 1. **Clone repository**
    ```bash
    git clone https://github.com/sansabilagalih/sims-ppob.git
-   cd simsPpob
+   cd sims-ppob
    ```
 
 2. **Install dependencies**

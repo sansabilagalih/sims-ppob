@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
 import './BalanceCard.css';
 import BackgroundSaldo from '../assets/Background Saldo.png';
+import DefaultProfilePhoto from '../assets/Profile Photo.png';
 
 interface BalanceCardProps {
   balance: number;
@@ -12,6 +13,7 @@ interface BalanceCardProps {
 
 const BalanceCard = ({ balance, firstName, lastName, profileImage }: BalanceCardProps) => {
   const [showBalance, setShowBalance] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('id-ID', {
@@ -21,16 +23,19 @@ const BalanceCard = ({ balance, firstName, lastName, profileImage }: BalanceCard
     }).format(amount);
   };
 
+  // Check if profile image is valid (not null URL or placeholder)
+  const isValidProfileImage = profileImage && 
+    !profileImage.includes('null') && 
+    profileImage !== '';
+
   return (
     <div className="balance-section">
       <div className="profile-card">
         <img 
-          src={profileImage} 
+          src={imageError || !isValidProfileImage ? DefaultProfilePhoto : profileImage} 
           alt="Profile" 
           className="profile-image"
-          onError={(e) => {
-            e.currentTarget.src = '/src/assets/Profile Photo.png';
-          }}
+          onError={() => setImageError(true)}
         />
         <div className="profile-info">
           <p className="profile-greeting">Selamat datang,</p>

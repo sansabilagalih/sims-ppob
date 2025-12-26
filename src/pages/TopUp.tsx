@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../app/store';
-import { topUp, reset } from '../features/home/homeSlice';
+import { topUp, reset, getProfile, getBalance } from '../features/home/homeSlice';
 import { MdCreditCard, MdCheckCircle, MdCancel } from 'react-icons/md';
 import Navbar from '../components/Navbar';
 import BalanceCard from '../components/BalanceCard';
@@ -22,6 +22,14 @@ const TopUp = () => {
   );
 
   const presetAmounts = [10000, 20000, 50000, 100000, 250000, 500000];
+
+  // Fetch profile and balance on mount
+  useEffect(() => {
+    if (!profile) {
+      dispatch(getProfile());
+    }
+    dispatch(getBalance());
+  }, [dispatch, profile]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('id-ID').format(value);

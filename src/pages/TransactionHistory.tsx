@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../app/store';
-import { getTransactionHistory, resetTransactions } from '../features/home/homeSlice';
+import { getTransactionHistory, resetTransactions, getProfile, getBalance } from '../features/home/homeSlice';
 import Navbar from '../components/Navbar';
 import BalanceCard from '../components/BalanceCard';
 import './TransactionHistory.css';
@@ -20,11 +20,17 @@ const TransactionHistory = () => {
     if (hasFetched.current) return;
     hasFetched.current = true;
     
+    // Fetch profile and balance if not loaded
+    if (!profile) {
+      dispatch(getProfile());
+    }
+    dispatch(getBalance());
+    
     // Reset transactions on mount to ensure clean state
     dispatch(resetTransactions());
     // Load initial transactions
     dispatch(getTransactionHistory({ offset: 0, limit: 5 }));
-  }, [dispatch]);
+  }, [dispatch, profile]);
 
   const handleShowMore = () => {
     dispatch(getTransactionHistory({ offset: transactionOffset, limit: 5 }));

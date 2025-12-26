@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../app/store';
-import { makeTransaction, reset, getServices } from '../features/home/homeSlice';
+import { makeTransaction, reset, getServices, getProfile, getBalance } from '../features/home/homeSlice';
 import { MdCreditCard, MdCheckCircle, MdCancel } from 'react-icons/md';
 import Navbar from '../components/Navbar';
 import BalanceCard from '../components/BalanceCard';
@@ -27,11 +27,17 @@ const Payment = () => {
   const selectedService = services.find(s => s.service_code === serviceCode);
 
   useEffect(() => {
+    // Fetch profile and balance if not loaded
+    if (!profile) {
+      dispatch(getProfile());
+    }
+    dispatch(getBalance());
+    
     // Fetch services if not loaded
     if (services.length === 0) {
       dispatch(getServices());
     }
-  }, [dispatch, services.length]);
+  }, [dispatch, services.length, profile]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('id-ID').format(value);

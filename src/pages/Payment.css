@@ -1,0 +1,232 @@
+.payment-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.payment-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.payment-section {
+  max-width: 100%;
+}
+
+.payment-label {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+  font-weight: 400;
+}
+
+.service-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.service-icon-large {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.service-name-large {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #c4c4c4;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  cursor: not-allowed;
+  box-sizing: border-box;
+}
+
+.payment-input:disabled {
+  opacity: 1;
+}
+
+.btn-payment {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f42619;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-payment:hover:not(:disabled) {
+  background-color: #d41f12;
+}
+
+.btn-payment:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+/* Modal Styles - Reuse from TopUp */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+}
+
+.modal-icon-confirm {
+  background-color: #f42619;
+  color: white;
+}
+
+.modal-icon-success {
+  background-color: #52c41a;
+  color: white;
+}
+
+.modal-icon-error {
+  background-color: #f42619;
+  color: white;
+}
+
+.icon-logo {
+  font-size: 1.5rem;
+}
+
+.icon-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.icon-check {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-status {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, color 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.modal-btn-primary {
+  background-color: transparent;
+  color: #f42619;
+}
+
+.modal-btn-primary:hover {
+  background-color: transparent;
+  color: #f42619;
+  opacity: 0.7;
+}
+
+.modal-btn-secondary {
+  background-color: transparent;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
+.modal-btn-secondary:hover {
+  color: #888;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .payment-content {
+    padding: 0 1rem;
+  }
+
+  .service-name-large {
+    font-size: 1.125rem;
+  }
+}

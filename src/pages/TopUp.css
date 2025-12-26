@@ -1,0 +1,257 @@
+.topup-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.topup-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.topup-section {
+  max-width: 100%;
+}
+
+.topup-label {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem 0;
+  font-weight: 400;
+}
+
+.topup-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 2.5rem 0;
+}
+
+.topup-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.topup-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #c4c4c4;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topup-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1a1a1a;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.topup-input:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.topup-input::placeholder {
+  color: #aaa;
+}
+
+.btn-topup {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f42619;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-topup:hover:not(:disabled) {
+  background-color: #d41f12;
+}
+
+.btn-topup:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.preset-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.preset-btn {
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.preset-btn:hover {
+  border-color: #f42619;
+  background-color: #fff5f5;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+}
+
+.modal-icon-confirm {
+  background-color: #f42619;
+  color: white;
+}
+
+.modal-icon-success {
+  background-color: #52c41a;
+  color: white;
+}
+
+.modal-icon-error {
+  background-color: #f42619;
+  color: white;
+}
+
+.icon-logo {
+  font-size: 1.5rem;
+}
+
+.icon-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.icon-check {
+  font-size: 2.5rem;
+}
+
+.modal-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal-status {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.modal-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, color 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.modal-btn-primary {
+  background-color: transparent;
+  color: #f42619;
+}
+
+.modal-btn-primary:hover {
+  background-color: transparent;
+  color: #f42619;
+  opacity: 0.7;
+}
+
+.modal-btn-secondary {
+  background-color: transparent;
+  color: #aaa;
+  margin-bottom: 0;
+}
+
+.modal-btn-secondary:hover {
+  color: #888;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .topup-content {
+    padding: 0 1rem;
+  }
+
+  .topup-form {
+    grid-template-columns: 1fr;
+  }
+
+  .preset-amounts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topup-title {
+    font-size: 1.5rem;
+  }
+}

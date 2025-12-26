@@ -1,0 +1,138 @@
+.transaction-history-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.transaction-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.transaction-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  transition: background-color 0.2s;
+}
+
+.transaction-item:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.transaction-item:last-child {
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0 0 8px 8px;
+}
+
+.transaction-item:only-child {
+  border-radius: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.transaction-item:hover {
+  background-color: #fafafa;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.transaction-amount {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.transaction-amount.positive {
+  color: #52c41a;
+}
+
+.transaction-amount.negative {
+  color: #f42619;
+}
+
+.transaction-date {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.transaction-description {
+  font-size: 0.75rem;
+  color: #999;
+  font-weight: 400;
+  text-align: right;
+}
+
+.show-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-show-more {
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: #f42619;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-show-more:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.btn-show-more:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.empty-text {
+  font-size: 0.875rem;
+  color: #999;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .transaction-content {
+    padding: 0 1rem;
+  }
+
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .transaction-description {
+    align-self: flex-end;
+  }
+}
